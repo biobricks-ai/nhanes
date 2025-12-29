@@ -4,32 +4,13 @@ stages:
     deps:
       - scripts/download.py
     outs:
-      - download/EPH_F.xpt
-      - download/EPH_G.xpt
-      - download/EPHPP_H.xpt
-      - download/EPHPP_I.xpt
-      - download/DEMO_F.xpt
-      - download/DEMO_G.xpt
-      - download/DEMO_H.xpt
-      - download/DEMO_I.xpt
+      - download/:
+          persist: true
   process:
     cmd: .venv/bin/python scripts/process.py
     deps:
       - scripts/process.py
-      - download/EPH_F.xpt
-      - download/EPH_G.xpt
-      - download/EPHPP_H.xpt
-      - download/EPHPP_I.xpt
-      - download/DEMO_F.xpt
-      - download/DEMO_G.xpt
-      - download/DEMO_H.xpt
-      - download/DEMO_I.xpt
+      - download/
     outs:
-      - brick/EPH_F.parquet
-      - brick/EPH_G.parquet
-      - brick/EPHPP_H.parquet
-      - brick/EPHPP_I.parquet
-      - brick/DEMO_F.parquet
-      - brick/DEMO_G.parquet
-      - brick/DEMO_H.parquet
-      - brick/DEMO_I.parquet
+      - brick/:
+          persist: true

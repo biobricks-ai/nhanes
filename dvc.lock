@@ -5,110 +5,29 @@ stages:
     deps:
     - path: scripts/download.py
       hash: md5
-      md5: 73757d1ef11230aa1c157669fec66f60
-      size: 1985
+      md5: 64c7cd160b391c17d105361eb9116a11
+      size: 4853
     outs:
-    - path: download/DEMO_F.xpt
+    - path: download/
       hash: md5
-      md5: aa0311654076bcf7dea333389f3c0635
-      size: 3631600
-    - path: download/DEMO_G.xpt
-      hash: md5
-      md5: f4b048688d73dd5ef8d167526e888b56
-      size: 3753760
-    - path: download/DEMO_H.xpt
-      hash: md5
-      md5: fe59a58ba1a5cc4814d7e6db4ebe820e
-      size: 3833200
-    - path: download/DEMO_I.xpt
-      hash: md5
-      md5: 7c3bcc3d4dd0adf238b33016b9692ef0
-      size: 3756480
-    - path: download/EPHPP_H.xpt
-      hash: md5
-      md5: 74608b2ed542a833c32459183e1ce849
-      size: 604400
-    - path: download/EPHPP_I.xpt
-      hash: md5
-      md5: 3bdd552d82c83e0efb70ead5256b7bc4
-      size: 587440
-    - path: download/EPH_F.xpt
-      hash: md5
-      md5: 5e5527aac5da1bd509f61842bd623dc2
-      size: 432000
-    - path: download/EPH_G.xpt
-      hash: md5
-      md5: 8207c9d12549ba7f89c243bec085b049
-      size: 355920
+      md5: 34a35d5a30ca47baffc747ae57e29138.dir
+      size: 22533737491
+      nfiles: 1576
   process:
     cmd: .venv/bin/python scripts/process.py
     deps:
-    - path: download/DEMO_F.xpt
+    - path: download/
       hash: md5
-      md5: aa0311654076bcf7dea333389f3c0635
-      size: 3631600
-    - path: download/DEMO_G.xpt
-      hash: md5
-      md5: f4b048688d73dd5ef8d167526e888b56
-      size: 3753760
-    - path: download/DEMO_H.xpt
-      hash: md5
-      md5: fe59a58ba1a5cc4814d7e6db4ebe820e
-      size: 3833200
-    - path: download/DEMO_I.xpt
-      hash: md5
-      md5: 7c3bcc3d4dd0adf238b33016b9692ef0
-      size: 3756480
-    - path: download/EPHPP_H.xpt
-      hash: md5
-      md5: 74608b2ed542a833c32459183e1ce849
-      size: 604400
-    - path: download/EPHPP_I.xpt
-      hash: md5
-      md5: 3bdd552d82c83e0efb70ead5256b7bc4
-      size: 587440
-    - path: download/EPH_F.xpt
-      hash: md5
-      md5: 5e5527aac5da1bd509f61842bd623dc2
-      size: 432000
-    - path: download/EPH_G.xpt
-      hash: md5
-      md5: 8207c9d12549ba7f89c243bec085b049
-      size: 355920
+      md5: 34a35d5a30ca47baffc747ae57e29138.dir
+      size: 22533737491
+      nfiles: 1576
     - path: scripts/process.py
       hash: md5
-      md5: 8b4e9f2bbe1caf32247f7d8192996078
-      size: 936
+      md5: 2df3629de8d8ba075b8275a85e7c104e
+      size: 2655
     outs:
-    - path: brick/DEMO_F.parquet
+    - path: brick/
       hash: md5
-      md5: 27b8815050d24aa6c5f1609b3656e8d7
-      size: 367015
-    - path: brick/DEMO_G.parquet
-      hash: md5
-      md5: 7b31f900ac6b187038721e53686e3b5d
-      size: 353386
-    - path: brick/DEMO_H.parquet
-      hash: md5
-      md5: e0624bf7749952ba69ff077293b634f9
-      size: 380730
-    - path: brick/DEMO_I.parquet
-      hash: md5
-      md5: 76987dccacf2c9e3497eb2f5669eb484
-      size: 377424
-    - path: brick/EPHPP_H.parquet
-      hash: md5
-      md5: ec42fe0b27085f333e0f746303b16afe
-      size: 133767
-    - path: brick/EPHPP_I.parquet
-      hash: md5
-      md5: 28cc74d5c88aaa10c73a5e388a364454
-      size: 127233
-    - path: brick/EPH_F.parquet
-      hash: md5
-      md5: 3f5ca85d6cd2038335d091fe7137a36a
-      size: 104921
-    - path: brick/EPH_G.parquet
-      hash: md5
-      md5: ba1abbe82b8c18291fd6ad089acf7943
-      size: 95585
+      md5: 73f6a6456b7ed82d92c2c935581a4853.dir
+      size: 2544949493
+      nfiles: 1576

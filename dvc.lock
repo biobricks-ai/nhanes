@@ -1,0 +1,94 @@
+schema: '2.0'
+stages:
+  download:
+    cmd: .venv/bin/python scripts/download.py
+    deps:
+    - path: scripts/download.py
+      hash: md5
+      md5: 73757d1ef11230aa1c157669fec66f60
+      size: 1985
+    outs:
+    - path: download/DEMO_F.xpt
+      hash: md5
+      md5: aa0311654076bcf7dea333389f3c0635
+      size: 3631600
+    - path: download/DEMO_G.xpt
+      hash: md5
+      md5: f4b048688d73dd5ef8d167526e888b56
+      size: 3753760
+    - path: download/DEMO_H.xpt
+      hash: md5
+      md5: fe59a58ba1a5cc4814d7e6db4ebe820e
+      size: 3833200
+    - path: download/DEMO_I.xpt
+      hash: md5
+      md5: 7c3bcc3d4dd0adf238b33016b9692ef0
+      size: 3756480
+    - path: download/EPHPP_H.xpt
+      hash: md5
+      md5: 74608b2ed542a833c32459183e1ce849
+      size: 604400
+    - path: download/EPHPP_I.xpt
+      hash: md5
+      md5: 3bdd552d82c83e0efb70ead5256b7bc4
+      size: 587440
+    - path: download/EPH_F.xpt
+      hash: md5
+      md5: 5e5527aac5da1bd509f61842bd623dc2
+      size: 432000
+    - path: download/EPH_G.xpt
+      hash: md5
+      md5: 8207c9d12549ba7f89c243bec085b049
+      size: 355920
+  process:
+    cmd: .venv/bin/python scripts/process.py
+    deps:
+    - path: download/DEMO_F.xpt
+      hash: md5
+      md5: aa0311654076bcf7dea333389f3c0635
+      size: 3631600
+    - path: download/DEMO_G.xpt
+      hash: md5
+      md5: f4b048688d73dd5ef8d167526e888b56
+      size: 3753760
+    - path: download/DEMO_H.xpt
+      hash: md5
+      md5: fe59a58ba1a5cc4814d7e6db4ebe820e
+      size: 3833200
+    - path: download/DEMO_I.xpt
+      hash: md5
+      md5: 7c3bcc3d4dd0adf238b33016b9692ef0
+      size: 3756480
+    - path: download/EPHPP_H.xpt
+      hash: md5
+      md5: 74608b2ed542a833c32459183e1ce849
+      size: 604400
+    - path: download/EPHPP_I.xpt
+      hash: md5
+      md5: 3bdd552d82c83e0efb70ead5256b7bc4
+      size: 587440
+    - path: download/EPH_F.xpt
+      hash: md5
+      md5: 5e5527aac5da1bd509f61842bd623dc2
+      size: 432000
+    - path: download/EPH_G.xpt
+      hash: md5
+      md5: 8207c9d12549ba7f89c243bec085b049
+      size: 355920
+    - path: scripts/process.py
+      hash: md5
+      md5: cd9ab66ce600cff0f48a0bf9b4e4633d
+      size: 3676
+    outs:
+    - path: brick/demographics.parquet
+      hash: md5
+      md5: ecbd4ef443c7da7cc2eb506571bc1cfd
+      size: 1428901
+    - path: brick/environmental_phenols.parquet
+      hash: md5
+      md5: 138e5a7c349b66fffe9c4f9bf999635c
+      size: 397501
+    - path: brick/phenols_with_demographics.parquet
+      hash: md5
+      md5: 94a16768e630f67fc79e4d5ba1a61f25
+      size: 468676

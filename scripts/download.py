@@ -6,18 +6,20 @@ import urllib.request
 from pathlib import Path
 
 # NHANES Environmental Phenols data URLs
-# EPH = Environmental Phenols (includes benzophenone-3, parabens, etc.)
+# EPH/EPHPP = Environmental Phenols / Personal Care Products
+# Includes benzophenone-3, parabens, BPA, triclosan, etc.
+# URL format: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/{YEAR}/DataFiles/{FILE}.xpt
 NHANES_FILES = {
     # Environmental Phenols - Urine
-    "EPH_F": "https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/EPH_F.XPT",  # 2009-2010
-    "EPH_G": "https://wwwn.cdc.gov/Nchs/Nhanes/2011-2012/EPH_G.XPT",  # 2011-2012
-    "EPH_H": "https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/EPH_H.XPT",  # 2013-2014
-    "EPH_I": "https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/EPH_I.XPT",  # 2015-2016
+    "EPH_F": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2009/DataFiles/EPH_F.xpt",  # 2009-2010
+    "EPH_G": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/EPH_G.xpt",  # 2011-2012
+    "EPHPP_H": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2013/DataFiles/EPHPP_H.xpt",  # 2013-2014 (renamed)
+    "EPHPP_I": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2015/DataFiles/EPHPP_I.xpt",  # 2015-2016
     # Demographics
-    "DEMO_F": "https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/DEMO_F.XPT",
-    "DEMO_G": "https://wwwn.cdc.gov/Nchs/Nhanes/2011-2012/DEMO_G.XPT",
-    "DEMO_H": "https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/DEMO_H.XPT",
-    "DEMO_I": "https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/DEMO_I.XPT",
+    "DEMO_F": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2009/DataFiles/DEMO_F.xpt",
+    "DEMO_G": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/DEMO_G.xpt",
+    "DEMO_H": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2013/DataFiles/DEMO_H.xpt",
+    "DEMO_I": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2015/DataFiles/DEMO_I.xpt",
 }
 
 
@@ -39,7 +41,7 @@ def main():
 
     success_count = 0
     for name, url in NHANES_FILES.items():
-        output_path = download_dir / f"{name}.XPT"
+        output_path = download_dir / f"{name}.xpt"
         if download_file(url, output_path):
             success_count += 1
 

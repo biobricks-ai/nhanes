@@ -17,14 +17,15 @@ def process_environmental_phenols():
     brick_dir.mkdir(exist_ok=True)
 
     # Process EPH files (Environmental Phenols)
-    eph_files = sorted(download_dir.glob("EPH_*.XPT"))
+    # Note: Pattern matches both EPH_*.xpt and EPHPP_*.xpt (renamed starting 2013-2014)
+    eph_files = sorted(list(download_dir.glob("EPH_*.xpt")) + list(download_dir.glob("EPHPP_*.xpt")))
     eph_dfs = []
 
     cycle_map = {
         "EPH_F": "2009-2010",
         "EPH_G": "2011-2012",
-        "EPH_H": "2013-2014",
-        "EPH_I": "2015-2016",
+        "EPHPP_H": "2013-2014",  # Renamed in 2013-2014
+        "EPHPP_I": "2015-2016",
     }
 
     for f in eph_files:
@@ -46,7 +47,7 @@ def process_environmental_phenols():
             print(f"  - {col}")
 
     # Process DEMO files (Demographics)
-    demo_files = sorted(download_dir.glob("DEMO_*.XPT"))
+    demo_files = sorted(download_dir.glob("DEMO_*.xpt"))
     demo_dfs = []
 
     demo_cycle_map = {

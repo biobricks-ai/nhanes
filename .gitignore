@@ -1,0 +1,6 @@
+logs
+/download
+/brick
+.env
+__pycache__
+*.pyc

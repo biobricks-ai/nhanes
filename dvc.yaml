@@ -1,0 +1,30 @@
+stages:
+  download:
+    cmd: python scripts/download.py
+    deps:
+      - scripts/download.py
+    outs:
+      - download/EPH_F.XPT
+      - download/EPH_G.XPT
+      - download/EPH_H.XPT
+      - download/EPH_I.XPT
+      - download/DEMO_F.XPT
+      - download/DEMO_G.XPT
+      - download/DEMO_H.XPT
+      - download/DEMO_I.XPT
+  process:
+    cmd: python scripts/process.py
+    deps:
+      - scripts/process.py
+      - download/EPH_F.XPT
+      - download/EPH_G.XPT
+      - download/EPH_H.XPT
+      - download/EPH_I.XPT
+      - download/DEMO_F.XPT
+      - download/DEMO_G.XPT
+      - download/DEMO_H.XPT
+      - download/DEMO_I.XPT
+    outs:
+      - brick/environmental_phenols.parquet
+      - brick/demographics.parquet
+      - brick/phenols_with_demographics.parquet

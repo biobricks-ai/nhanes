@@ -77,18 +77,38 @@ stages:
       size: 355920
     - path: scripts/process.py
       hash: md5
-      md5: cd9ab66ce600cff0f48a0bf9b4e4633d
-      size: 3676
+      md5: 8b4e9f2bbe1caf32247f7d8192996078
+      size: 936
     outs:
-    - path: brick/demographics.parquet
+    - path: brick/DEMO_F.parquet
       hash: md5
-      md5: ecbd4ef443c7da7cc2eb506571bc1cfd
-      size: 1428901
-    - path: brick/environmental_phenols.parquet
+      md5: 27b8815050d24aa6c5f1609b3656e8d7
+      size: 367015
+    - path: brick/DEMO_G.parquet
       hash: md5
-      md5: 138e5a7c349b66fffe9c4f9bf999635c
-      size: 397501
-    - path: brick/phenols_with_demographics.parquet
+      md5: 7b31f900ac6b187038721e53686e3b5d
+      size: 353386
+    - path: brick/DEMO_H.parquet
       hash: md5
-      md5: 94a16768e630f67fc79e4d5ba1a61f25
-      size: 468676
+      md5: e0624bf7749952ba69ff077293b634f9
+      size: 380730
+    - path: brick/DEMO_I.parquet
+      hash: md5
+      md5: 76987dccacf2c9e3497eb2f5669eb484
+      size: 377424
+    - path: brick/EPHPP_H.parquet
+      hash: md5
+      md5: ec42fe0b27085f333e0f746303b16afe
+      size: 133767
+    - path: brick/EPHPP_I.parquet
+      hash: md5
+      md5: 28cc74d5c88aaa10c73a5e388a364454
+      size: 127233
+    - path: brick/EPH_F.parquet
+      hash: md5
+      md5: 3f5ca85d6cd2038335d091fe7137a36a
+      size: 104921
+    - path: brick/EPH_G.parquet
+      hash: md5
+      md5: ba1abbe82b8c18291fd6ad089acf7943
+      size: 95585

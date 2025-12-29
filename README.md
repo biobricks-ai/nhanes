@@ -1,51 +1,40 @@
-# NHANES Environmental Phenols
+# NHANES
 
-NHANES (National Health and Nutrition Examination Survey) Environmental Phenols data from CDC.
+NHANES (National Health and Nutrition Examination Survey) data from CDC, converted to parquet format.
 
 ## Description
 
-This brick contains urinary biomarker data for environmental phenols including:
-- **Benzophenone-3 (BP-3/oxybenzone)** - UV filter in sunscreens (URXBP3)
-- **Bisphenol A (BPA)** - plasticizer (URXBPH)
-- **Parabens** - preservatives (methylparaben, propylparaben, etc.)
-- **Triclosan** - antimicrobial agent (URXTRS)
+This brick contains NHANES laboratory and demographic data files converted 1:1 from SAS transport (XPT) format to parquet.
 
-Data spans NHANES cycles 2009-2010 through 2015-2016.
+Current data includes Environmental Phenols and Demographics from cycles 2009-2016.
 
 ## Data Files
 
-- `environmental_phenols.parquet` - Raw EPH data from all cycles
-- `demographics.parquet` - Demographics data for all participants
-- `phenols_with_demographics.parquet` - Merged dataset with key variables
+Each source XPT file is converted to a corresponding parquet file:
 
-## Key Variables
-
-### Environmental Phenols
-| Variable | Description |
-|----------|-------------|
-| SEQN | Respondent sequence number |
-| URXBP3 | Urinary Benzophenone-3 (ng/mL) |
-| URDBP3LC | Benzophenone-3 detection limit flag |
-| URXBPH | Urinary Bisphenol A (ng/mL) |
-| URXMPB | Urinary Methylparaben (ng/mL) |
-| URXPPB | Urinary Propylparaben (ng/mL) |
-| URXTRS | Urinary Triclosan (ng/mL) |
+### Environmental Phenols (Urine)
+| File | Cycle | Description |
+|------|-------|-------------|
+| `EPH_F.parquet` | 2009-2010 | Environmental Phenols |
+| `EPH_G.parquet` | 2011-2012 | Environmental Phenols |
+| `EPHPP_H.parquet` | 2013-2014 | Personal Care Products & Phenols |
+| `EPHPP_I.parquet` | 2015-2016 | Personal Care Products & Phenols |
 
 ### Demographics
-| Variable | Description |
-|----------|-------------|
-| RIAGENDR | Gender (1=Male, 2=Female) |
-| RIDAGEYR | Age in years |
-| RIDRETH1 | Race/ethnicity |
-| INDFMPIR | Family income to poverty ratio |
+| File | Cycle | Description |
+|------|-------|-------------|
+| `DEMO_F.parquet` | 2009-2010 | Demographic Variables |
+| `DEMO_G.parquet` | 2011-2012 | Demographic Variables |
+| `DEMO_H.parquet` | 2013-2014 | Demographic Variables |
+| `DEMO_I.parquet` | 2015-2016 | Demographic Variables |
 
 ## Usage
 
 ```python
 import biobricks as bb
 
-bb.install("nhanes-environmental-phenols")
-bb.load("nhanes-environmental-phenols")
+bb.install("nhanes")
+bb.load("nhanes")
 ```
 
 Or directly with pandas:
@@ -53,14 +42,21 @@ Or directly with pandas:
 ```python
 import pandas as pd
 
-phenols = pd.read_parquet("brick/phenols_with_demographics.parquet")
-print(phenols.head())
+# Load a specific cycle
+eph_2015 = pd.read_parquet("brick/EPHPP_I.parquet")
+demo_2015 = pd.read_parquet("brick/DEMO_I.parquet")
+
+# Merge phenols with demographics
+merged = pd.merge(eph_2015, demo_2015, on="SEQN")
 ```
 
 ## Source
 
 Data from CDC National Center for Health Statistics:
 https://wwwn.cdc.gov/nchs/nhanes/
+
+Documentation for each file is available at:
+https://wwwn.cdc.gov/Nchs/Nhanes/Search/DataPage.aspx
 
 ## License
 
